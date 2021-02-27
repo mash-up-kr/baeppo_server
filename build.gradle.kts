@@ -25,7 +25,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.mariadb.jdbc:mariadb-java-client")
-//    runtimeOnly("com.h2database:h2")
+
+    implementation("org.modelmapper:modelmapper:2.0.0")
+
+    testImplementation("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
