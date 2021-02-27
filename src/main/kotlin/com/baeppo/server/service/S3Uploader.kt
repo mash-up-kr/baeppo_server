@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile
 import javax.annotation.PostConstruct
 
 @Service
-class S3UploaderService() {
+class S3Uploader() {
     private lateinit var s3Client: AmazonS3
 
     @Value("\${aws.cloud.aws.credentials.accessKey}")
