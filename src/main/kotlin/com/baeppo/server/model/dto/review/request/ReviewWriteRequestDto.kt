@@ -1,10 +1,10 @@
 package com.baeppo.server.model.dto.review.request
 
 data class ReviewWriteRequestDto(
-    val address: String,
-    val detailAddress: String,
-    val schoolDistanceScore: Int,
-    val hoseOwnerScore: Int,
     val title: String,
-    val contents: String
+    val content: String,
+    val distance: Int,
+    val owner: Int,
+    val safety: Int,
+    val clean: Int
 )
