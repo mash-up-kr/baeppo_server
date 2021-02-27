@@ -15,7 +15,9 @@ class ReviewService(
 ) {
     @Transactional
     fun createReview(reviewWriteRequestDto: ReviewWriteRequestDto, user: User) {
-        val review = modelMapper.map(reviewWriteRequestDto, Review::class.java)
+        val review = modelMapper.map(reviewWriteRequestDto, Review::class.java).apply {
+            this.user = User(1)
+        }
 
         reviewRepository.save(review)
     }

@@ -9,7 +9,7 @@ class Review(
     @Id @GeneratedValue
     var id: Long? = null,
     @ManyToOne
-    var user: User,
+    var user: User? = null,
     @OneToMany
     var reviewImageList: List<ReviewImage> = emptyList(),
     val title: String? = null,

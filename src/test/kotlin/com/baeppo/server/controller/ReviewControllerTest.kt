@@ -1,5 +1,8 @@
 package com.baeppo.server.controller
 
+import com.baeppo.server.model.entity.user.User
+import com.baeppo.server.model.repository.samplerepositorypackage.UserRepository
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -16,6 +19,14 @@ class ReviewControllerTest {
 
     @Autowired
     private lateinit var mockMvc: MockMvc
+
+    @Autowired
+    private lateinit var userRepository: UserRepository
+
+    @BeforeEach
+    fun beforeEach() {
+        userRepository.save(User())
+    }
 
     @Test
     fun fileUploadTest() {
