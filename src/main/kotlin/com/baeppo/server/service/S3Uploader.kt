@@ -15,16 +15,16 @@ import javax.annotation.PostConstruct
 class S3Uploader() {
     private lateinit var s3Client: AmazonS3
 
-    @Value("\${aws.cloud.aws.credentials.accessKey}")
+    @Value("cloud.aws.credentials.accessKey")
     private val accessKey: String? = null
 
-    @Value("\${aws.cloud.aws.credentials.secretKey}")
+    @Value("cloud.aws.credentials.secretKey")
     private val secretKey: String? = null
 
-    @Value("\${aws.cloud.aws.s3.bucket}")
+    @Value("cloud.aws.s3.bucket")
     private val bucket: String? = null
 
-    @Value("\${aws.cloud.aws.region.static}")
+    @Value("cloud.aws.region.static")
     private val region: String? = null
 
     @PostConstruct
