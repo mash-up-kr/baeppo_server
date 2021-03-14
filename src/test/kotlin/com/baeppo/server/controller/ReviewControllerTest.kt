@@ -28,19 +28,19 @@ class ReviewControllerTest {
         userRepository.save(User())
     }
 
-    @Test
-    fun fileUploadTest() {
-        val imageFile = FileInputStream("/Users/luffy.dmonkey/Downloads/KakaoTalk_Photo_2019-10-17-10-21-53-2.jpeg")
-        val file1 = MockMultipartFile("images", imageFile)
-        val imageFile2 = FileInputStream("/Users/luffy.dmonkey/Downloads/KakaoTalk_Photo_2019-10-17-10-21-53-2.jpeg")
-        val file2 = MockMultipartFile("images", imageFile2)
-
-
-        mockMvc.perform(multipart("/v1/review")
-            .file(file1)
-            .file(file2)
-            .param("title", "test-title"))
-            .andExpect(status().isOk)
-
-    }
+//    @Test
+//    fun fileUploadTest() {
+//        val imageFile = FileInputStream("/Users/luffy.dmonkey/Downloads/KakaoTalk_Photo_2019-10-17-10-21-53-2.jpeg")
+//        val file1 = MockMultipartFile("images", imageFile)
+//        val imageFile2 = FileInputStream("/Users/luffy.dmonkey/Downloads/KakaoTalk_Photo_2019-10-17-10-21-53-2.jpeg")
+//        val file2 = MockMultipartFile("images", imageFile2)
+//
+//
+//        mockMvc.perform(multipart("/v1/review")
+//            .file(file1)
+//            .file(file2)
+//            .param("title", "test-title"))
+//            .andExpect(status().isOk)
+//
+//    }
 }
