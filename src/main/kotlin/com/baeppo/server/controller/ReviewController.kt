@@ -4,6 +4,7 @@ import com.baeppo.server.model.dto.review.request.ReviewWriteRequestDto
 import com.baeppo.server.model.dto.review.response.ReviewBaseDto
 import com.baeppo.server.model.dto.review.response.ReviewDetailResponseDto
 import com.baeppo.server.model.dto.review.response.ReviewListResponseDto
+import com.baeppo.server.model.entity.user.User
 import com.baeppo.server.service.ReviewService
 import com.baeppo.server.util.Logger
 import org.springframework.http.HttpStatus
@@ -20,7 +21,8 @@ class ReviewController(
     companion object : Logger
 
     @PostMapping
-    fun review(@RequestBody reviewWriteRequestDto: ReviewWriteRequestDto): ResponseEntity<Unit> {
+    fun review(reviewWriteRequestDto: ReviewWriteRequestDto): ResponseEntity<Unit> {
+        reviewService.createReview(reviewWriteRequestDto, User())
         return ResponseEntity(HttpStatus.OK)
     }
 
