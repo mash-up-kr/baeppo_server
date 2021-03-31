@@ -1,11 +1,11 @@
-package com.baeppo.server.model.entity.sampleentitypackage
+package com.baeppo.server.model.entity.building
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-class SampleEntity(
+class University(
     @Id @GeneratedValue
-    val id: Long? = null
-)
+    var id: Long? = null
+) : BuildingBaseEntity()
