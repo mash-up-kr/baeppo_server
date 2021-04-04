@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.PropertySource
 
 @Configuration
-@ConfigurationProperties(prefix ="baeppo.cloud.aws")
+@ConfigurationProperties(prefix = "cloud.aws")
 @PropertySource(value = ["classpath:aws.yml"], factory = YamlPropertySourceFactory::class)
 class S3Properties(
     var credentials: Credential = Credential(),

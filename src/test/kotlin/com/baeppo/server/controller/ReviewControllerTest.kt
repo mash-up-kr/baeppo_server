@@ -1,6 +1,7 @@
 package com.baeppo.server.controller
 
 import com.baeppo.server.model.entity.user.User
+import com.baeppo.server.model.repository.samplerepositorypackage.ReviewRepository
 import com.baeppo.server.model.repository.samplerepositorypackage.UserRepository
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -23,6 +24,9 @@ class ReviewControllerTest {
     @Autowired
     private lateinit var userRepository: UserRepository
 
+    @Autowired
+    private lateinit var reviewRepository: ReviewRepository
+
     @BeforeEach
     fun beforeEach() {
         userRepository.save(User())
@@ -36,11 +40,16 @@ class ReviewControllerTest {
         val file2 = MockMultipartFile("images", imageFile2)
 
 
-        mockMvc.perform(multipart("/v1/review")
-            .file(file1)
-            .file(file2)
-            .param("title", "test-title"))
+        mockMvc.perform(
+            multipart("/v1/review")
+                .file(file1)
+                .file(file2)
+                .param("title", "test-title")
+        )
             .andExpect(status().isOk)
 
+        val reviews = reviewRepository.findAll()
+
+        println("review -> ${reviews[0].reviewImageList}")
     }
 }
