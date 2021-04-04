@@ -30,9 +30,9 @@ class ReviewControllerTest {
 
     @Test
     fun fileUploadTest() {
-        val imageFile = FileInputStream("/Users/luffy.dmonkey/Downloads/KakaoTalk_Photo_2019-10-17-10-21-53-2.jpeg")
+        val imageFile = FileInputStream("src/test/resources/test.jpeg")
         val file1 = MockMultipartFile("images", imageFile)
-        val imageFile2 = FileInputStream("/Users/luffy.dmonkey/Downloads/KakaoTalk_Photo_2019-10-17-10-21-53-2.jpeg")
+        val imageFile2 = FileInputStream("src/test/resources/test.jpeg")
         val file2 = MockMultipartFile("images", imageFile2)
 
 

@@ -1,13 +1,14 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val springVersion = "2.4.2"
-    val kotlinVersion = "1.4.21"
+    val springVersion = "2.4.4"
+    val kotlinVersion = "1.4.31"
     id("org.springframework.boot") version springVersion
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
     kotlin("plugin.jpa") version kotlinVersion
+    kotlin("kapt") version kotlinVersion
 }
 
 group = "com.baeppo"
@@ -30,6 +31,10 @@ dependencies {
     runtimeOnly("com.h2database:h2")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     implementation("org.springframework.boot:spring-boot-configuration-processor")
+
+    //queryDSL
+    implementation("com.querydsl:querydsl-jpa:4.4.0")
+    kapt("com.querydsl:querydsl-apt:4.4.0:jpa")
 
     // test
     testImplementation("com.h2database:h2")
