@@ -27,6 +27,11 @@ dependencies {
     implementation("org.mariadb.jdbc:mariadb-java-client")
     implementation("org.modelmapper:modelmapper:2.0.0")
     implementation(group = "org.springframework.cloud", name = "spring-cloud-aws-context", version = "2.2.1.RELEASE")
+    runtimeOnly("com.h2database:h2")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    implementation("org.springframework.boot:spring-boot-configuration-processor")
+
+    // test
     testImplementation("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
