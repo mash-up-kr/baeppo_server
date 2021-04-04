@@ -3,7 +3,9 @@ package com.baeppo.server.model.dto.review.request
 import org.springframework.web.multipart.MultipartFile
 
 data class ReviewWriteRequestDto(
-    var title: String? = null,
+    var address: String = "",
+    var detailAddress: String = "",
+    var title: String = "",
     var content: String? = null,
     var distance: Int? = null,
     var owner: Int? = null,

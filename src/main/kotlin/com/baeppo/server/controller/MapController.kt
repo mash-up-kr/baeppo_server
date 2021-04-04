@@ -1,17 +1,21 @@
 package com.baeppo.server.controller
 
-import com.baeppo.server.model.dto.map.response.MapDto
-import com.baeppo.server.model.dto.map.list.response.MapListDto
 import com.baeppo.server.model.dto.map.list.building.response.MapListBuildingDto
+import com.baeppo.server.model.dto.map.list.response.MapListDto
 import com.baeppo.server.model.dto.map.list.university.response.MapListUniversityDto
+import com.baeppo.server.model.dto.map.response.MapDto
 import com.baeppo.server.service.MapService
 import com.baeppo.server.util.Logger
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/v1/map")
+@RequestMapping(value = ["/v1/map"], consumes = [MediaType.APPLICATION_JSON_VALUE])
 class MapController(
     private val mapService: MapService
 ) {
