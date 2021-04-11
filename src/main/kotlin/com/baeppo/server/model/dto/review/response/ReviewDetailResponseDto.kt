@@ -4,12 +4,12 @@ import com.baeppo.server.model.entity.review.Review
 import com.fasterxml.jackson.annotation.JsonUnwrapped
 
 data class ReviewDetailResponseDto(
-    var content: String? = null,
+    var contents: String? = null,
     @JsonUnwrapped
     var reviewBaseResponseDto: ReviewBaseResponseDto? = null
 ) {
-    constructor(content: String?, review: Review) : this() {
-        this.content = review.content
+    constructor(review: Review) : this() {
+        this.contents = review.contents
         this.reviewBaseResponseDto = ReviewBaseResponseDto(review)
     }
 }

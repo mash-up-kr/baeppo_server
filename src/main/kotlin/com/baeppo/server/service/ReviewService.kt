@@ -22,13 +22,14 @@ class ReviewService(
 ) {
     @Transactional
     fun createReview(reviewWriteRequestDto: ReviewWriteRequestDto, user: User) {
-        val reviewImageList = reviewWriteRequestDto.images.map { multipartFile ->
-            val filePath = s3Uploader.upload(multipartFile)
-            reviewImageRepository.save(ReviewImage(path = filePath))
-        }
 
-        val review = MODEL_MAPPER.map(reviewWriteRequestDto, Review::class.java).apply {
-            this.reviewImageList = reviewImageList
+        val review = MODEL_MAPPER.map(reviewWriteRequestDto, Review::class.java)
+
+        reviewWriteRequestDto.images.map { multipartFile ->
+            val filePath = s3Uploader.upload(multipartFile)
+            ReviewImage(path = filePath)
+        }.also {
+            review.reviewImageList = it
         }
 
         val building = buildingRepository.findByAddress(reviewWriteRequestDto.address) ?: buildingRepository.save(

@@ -10,10 +10,10 @@ class Review(
     var id: Long? = null,
     @ManyToOne
     var user: User? = null,
-    @OneToMany
+    @OneToMany(cascade = [CascadeType.PERSIST, CascadeType.REMOVE])
     var reviewImageList: List<ReviewImage> = emptyList(),
     val title: String? = null,
-    val content: String? = null,
+    val contents: String? = null,
     val distance: Int? = null,
     val owner: Int? = null,
     val safety: Int? = null,
